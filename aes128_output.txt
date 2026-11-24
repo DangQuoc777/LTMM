@@ -1,0 +1,111 @@
+========================================================================
+KIEM DINH THUAT TOAN AES-128
+========================================================================
+Ban ro (128-bit) : 0000 0000 0000 0000 0000 0000 0000 0011
+Khoa   (128-bit) : 0000 0000 0000 0000 0000 0000 0000 0000
+
+--- [GIAI DOAN 1] MO RONG KHOA (KEY EXPANSION: 16 -> 176 BYTE) ---
+  Khoa vong k_0  : 0000 0000 0000 0000 0000 0000 0000 0000
+  Khoa vong k_1  : 6263 6363 6263 6363 6263 6363 6263 6363
+  Khoa vong k_2  : 9B98 98C9 F9FB FBAA 9B98 98C9 F9FB FBAA
+  Khoa vong k_3  : 9097 3450 696C CFFA F2F4 5733 0B0F AC99
+  Khoa vong k_4  : EE06 DA7B 876A 1581 759E 42B2 7E91 EE2B
+  Khoa vong k_5  : 7F2E 2B88 F844 3E09 8DDA 7CBB F34B 9290
+  Khoa vong k_6  : EC61 4B85 1425 758C 99FF 0937 6AB4 9BA7
+  Khoa vong k_7  : 2175 1787 3550 620B ACAF 6B3C C61B F09B
+  Khoa vong k_8  : 0EF9 0333 3BA9 6138 9706 0A04 511D FA9F
+  Khoa vong k_9  : B1D4 D8E2 8A7D B9DA 1D7B B3DE 4C66 4941
+  Khoa vong k_10 : B4EF 5BCB 3E92 E211 23E9 51CF 6F8F 188E
+
+--- [GIAI DOAN 2] KHOI TAO & 10 VONG BIEN DOI AES-128 ---
+    + Ban ro dau vao        : 0000 0000 0000 0000 0000 0000 0000 0011
+  Ma tran trang thai ban dau (nap theo cot):
+      [ 00 00 00 00 ]
+      [ 00 00 00 00 ]
+      [ 00 00 00 00 ]
+      [ 00 00 00 11 ]
+
+  [Khoi tao] Cong khoa dau k_0:
+    + Ban ro ^ k_0          : 0000 0000 0000 0000 0000 0000 0000 0011
+
+  [Vong  1]
+    + Sau SubBytes          : 6363 6363 6363 6363 6363 6363 6363 6382
+    + Sau ShiftRows         : 6363 6382 6363 6363 6363 6363 6363 6363
+    + Sau MixColumns        : 8282 5BBA 6363 6363 6363 6363 6363 6363
+    + Khoa vong k_i         : 6263 6363 6263 6363 6263 6363 6263 6363
+    + Het vong 1            : E0E1 38D9 0100 0000 0100 0000 0100 0000
+
+  [Vong  2]
+    + Sau SubBytes          : E1F8 0735 7C63 6363 7C63 6363 7C63 6363
+    + Sau ShiftRows         : E163 6363 7C63 6335 7C63 0763 7CF8 6363
+    + Sau MixColumns        : 7CE1 E1FE 0B2A 86EE 39D0 B426 EB51 E7D9
+    + Khoa vong k_i         : 9B98 98C9 F9FB FBAA 9B98 98C9 F9FB FBAA
+    + Het vong 2            : E779 7937 F2D1 7D44 A248 2CEF 12AA 1C73
+
+  [Vong  3]
+    + Sau SubBytes          : 94B6 B69A 893E FF1B 3A52 71DF C9AC 9C8F
+    + Sau ShiftRows         : 943E 718F 8952 9C9A 3AAC B61B C9B6 FFDF
+    + Sau MixColumns        : 8FF4 C2ED F908 4D61 36A3 CC62 687B E0AC
+    + Khoa vong k_i         : 9097 3450 696C CFFA F2F4 5733 0B0F AC99
+    + Het vong 3            : 1F63 F6BD 9064 829B C457 9B51 6374 4C35
+
+  [Vong  4]
+    + Sau SubBytes          : C0FB 427A 6043 1314 1C5B 14D1 FB92 2996
+    + Sau ShiftRows         : C043 1496 605B 297A 1C92 4214 FBFB 13D1
+    + Sau MixColumns        : DCEC 0A3B 7ED7 E726 C3F1 36DC 39F2 4E47
+    + Khoa vong k_i         : EE06 DA7B 876A 1581 759E 42B2 7E91 EE2B
+    + Het vong 4            : 32EA D040 F9BD F2A7 B66F 746E 4763 A06C
+
+  [Vong  5]
+    + Sau SubBytes          : 2387 7009 997A 895C 4EA8 929F A0FB E050
+    + Sau ShiftRows         : 237A 9250 99A8 E009 4EFB 705C A087 899F
+    + Sau MixColumns        : 0A2A 962D 23E0 F1EA A66F B1E1 DFAA 94D0
+    + Khoa vong k_i         : 7F2E 2B88 F844 3E09 8DDA 7CBB F34B 9290
+    + Het vong 5            : 7504 BDA5 DBA4 CFE3 2BB5 CD5A 2CE1 0640
+
+  [Vong  6]
+    + Sau SubBytes          : 9DF2 7A06 B949 8A11 F1D5 BDBE 71F8 6F09
+    + Sau ShiftRows         : 9D49 BD09 B9D5 6F06 F1F8 7A11 71F2 8ABE
+    + Sau MixColumns        : 4EDA AE5A 64BF B866 8185 CEA8 DBB5 558C
+    + Khoa vong k_i         : EC61 4B85 1425 758C 99FF 0937 6AB4 9BA7
+    + Het vong 6            : A2BB E5DF 709A CDEA 187A C79F B101 CE2B
+
+  [Vong  7]
+    + Sau SubBytes          : 3AEA D99E 51B8 BD87 ADDA C6DB C87C 8BF1
+    + Sau ShiftRows         : 3AB8 C6F1 51DA 8B9E AD7C D987 C8EA BDDB
+    + Sau MixColumns        : 90F1 1DC9 C2E6 3F85 9BA2 EA5C C800 35B9
+    + Khoa vong k_i         : 2175 1787 3550 620B ACAF 6B3C C61B F09B
+    + Het vong 7            : B184 0A4E F7B6 5D8E 370D 8160 0E1B C522
+
+  [Vong  8]
+    + Sau SubBytes          : C85F 672F 684E 4C19 9AD7 0CD0 ABAF A693
+    + Sau ShiftRows         : C84E 0C93 68D7 A62F 9AAF 6719 AB5F 4CD0
+    + Sau MixColumns        : C6D3 303C 3B03 9997 BB6F D04F 3011 074E
+    + Khoa vong k_i         : 0EF9 0333 3BA9 6138 9706 0A04 511D FA9F
+    + Het vong 8            : C82A 330F 00AA F8AF 2C69 DA4B 610C FDD1
+
+  [Vong  9]
+    + Sau SubBytes          : E8E5 C376 63AC 4179 71F9 57B3 EFFE 543E
+    + Sau ShiftRows         : E8AC 573E 63F9 5476 71FE C379 EFE5 41B3
+    + Sau MixColumns        : 4D6C A8A4 F400 A8E4 41B1 995C 034E 46F3
+    + Khoa vong k_i         : B1D4 D8E2 8A7D B9DA 1D7B B3DE 4C66 4941
+    + Het vong 9            : FCB8 7046 7E7D 113E 5CCA 2A82 4F28 0FB2
+
+  [Vong 10 - Vong cuoi (bo qua MixColumns)]
+    + Sau SubBytes          : B06C 515A F3FF 82B2 4A74 E513 8434 7637
+    + Sau ShiftRows         : B0FF E537 F374 765A 4A34 51B2 846C 8213
+    + Khoa vong k_10        : B4EF 5BCB 3E92 E211 23E9 51CF 6F8F 188E
+    + Het vong 10 (Ban ma)  : 0410 BEFC CDE6 944B 69DD 007D EBE3 9A9D
+  Ma tran trang thai cuoi cung:
+      [ 04 CD 69 EB ]
+      [ 10 E6 DD E3 ]
+      [ BE 94 00 9A ]
+      [ FC 4B 7D 9D ]
+
+>>> TONG KET KIEM DINH AES-128 <<<
+Ban ro dau vao   : 0000 0000 0000 0000 0000 0000 0000 0011
+Khoa 128-bit     : 0000 0000 0000 0000 0000 0000 0000 0000
+Ban ma tinh duoc : 0410 BEFC CDE6 944B 69DD 007D EBE3 9A9D
+Ban giai ma      : 0000 0000 0000 0000 0000 0000 0000 0011
+Kiem tra giai ma : PASS - KHOP BAN RO GOC
+
